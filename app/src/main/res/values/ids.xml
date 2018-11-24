@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+
+ <item name="btn_confirm" type="id"/>
+    <item name="btn_cancel" type="id"/>
+</resources>
