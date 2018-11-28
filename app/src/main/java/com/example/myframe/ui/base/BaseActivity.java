@@ -38,6 +38,7 @@ public abstract class BaseActivity extends SupportActivity implements BaseView,E
     private Unbinder unbinder;
     //当被观察者被订阅会出现Disposable，用于存储Disposable当页面销毁的时候取消订阅
     private CompositeDisposable mCompositeDisposable;
+    private List<BasePresenter> basePresenters;
 
     @SuppressLint("RestrictedApi")
     @Override
@@ -71,6 +72,17 @@ public abstract class BaseActivity extends SupportActivity implements BaseView,E
      * 初始化Presenter
      */
     public abstract void initPresenter();
+
+    /**
+     * 添加Presenters
+     * @param basePresenter
+     */
+    public void addPresenter(BasePresenter basePresenter){
+        if(basePresenters == null){
+            basePresenters = new ArrayList<>();
+        }
+        basePresenters.add(basePresenter);
+    }
 
 
     /**
@@ -176,6 +188,15 @@ public abstract class BaseActivity extends SupportActivity implements BaseView,E
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        /**
+         * 解除Presenter绑定
+         */
+        if(basePresenters!= null){
+            for (BasePresenter b :
+                    basePresenters) {
+                b.removeAttach();
+            }
+        }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             AppManager.getInstance().finishActivity(this);
         }
