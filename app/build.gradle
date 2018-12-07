@@ -87,4 +87,13 @@ dependencies {
 // 需要引入Google的仓库支持，用法和rxlifecycle-navi类似
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.1.0'
 
+    //Ui性能监听
+    implementation 'com.github.markzhai:blockcanary-android:1.5.0'
+
+    // 仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
+    debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseImplementation 'com.github.markzhai:blockcanary-no-op:1.5.0'
+
+
+
 }
