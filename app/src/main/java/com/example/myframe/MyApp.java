@@ -26,6 +26,7 @@ public class MyApp extends Application {
         registerLifecycle();
         //初始化网络框架
         initHttp();
+        //UI卡顿性能监听
         BlockCanary.install(this,new AppContext()).start();
 
     }
