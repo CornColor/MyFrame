@@ -93,7 +93,7 @@ dependencies {
     // 仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
     debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
     releaseImplementation 'com.github.markzhai:blockcanary-no-op:1.5.0'
-
-
+    //图片压缩鲁班
+    implementation 'top.zibin:Luban:1.1.8'
 
 }
